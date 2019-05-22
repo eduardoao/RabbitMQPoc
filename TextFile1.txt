@@ -1,0 +1,2 @@
+ // Printing ASCII Art ;-)
+                AsciiArt.AsciiArt.Write("Rabbit MQ");
