@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{d9dfa9c3-89e1-4a9b-866d-1718e108dfec}</Project>
-      <Name>Model</Name>
+    <ProjectReference Include="..\core\Domain\Domain.csproj">
+      <Project>{5E81BE6B-7037-40EF-AD4E-B1F6A21D8DA1}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

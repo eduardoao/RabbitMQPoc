@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
@@ -17,10 +18,10 @@ namespace Client
             {
                 var aplicationmachine = new AplicationDomain
                 {
-                    serviceDisplayName = service.DisplayName,
-                    serviceName = service.DisplayName,
-                    //ServiceType = service.ServiceType,
-                    //Status = service.Status,
+                    ServiceDisplayName = service.DisplayName,
+                    ServiceName = service.DisplayName,
+                    ServiceType = service.ServiceType,
+                    Status = service.Status,
                     MachiName = Environment.MachineName,
                     DateTimeUtc = DateTime.UtcNow
 
