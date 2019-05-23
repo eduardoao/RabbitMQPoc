@@ -94,10 +94,6 @@
       <Project>{13fedd89-db50-488b-b30a-8fcee6bb000b}</Project>
       <Name>Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Manager\Manager.csproj">
-      <Project>{0da97f57-9b90-4cf2-894f-ff4260e5be8c}</Project>
-      <Name>Manager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Process\Process.csproj">
       <Project>{0c9ad17e-6bdc-47d9-84be-b62ac4cbcd85}</Project>
       <Name>Process</Name>
