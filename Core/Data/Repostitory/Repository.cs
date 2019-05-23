@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,14 +12,9 @@ namespace Data.Repostitory
         private Context.DataAccessContext context;
 
         public Repository()
-        {
-            string connectionString = "server=localhost;port=3306;database=mycontext;uid=root;password=@postila01";   
-            MySqlConnection connection = new MySqlConnection(connectionString);
-                                 
-            context = new Context.DataAccessContext(connection, false);
-            connection.Open();
+        {            
 
-            //context = Activator.CreateInstance<Context.DataAccessContext>();
+            context = Activator.CreateInstance<Context.DataAccessContext>();
         }
 
         public Repository(Context.DataAccessContext context)

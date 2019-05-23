@@ -20,6 +20,10 @@ namespace Client
 
         protected override void OnStart(string[] args)
         {
+#if DEBUG
+            System.Diagnostics.Debugger.Launch();
+#endif
+
             // Set up a timer that triggers 01 minute.
             var timer = new System.Timers.Timer();
             timer.Interval = 60000;

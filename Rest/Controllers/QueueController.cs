@@ -13,6 +13,7 @@ using Domain.Entities;
 using System.Web.Mvc;
 using System;
 using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
+using Service.Validators;
 
 namespace Rest.Controllers
 {
@@ -41,8 +42,19 @@ namespace Rest.Controllers
         {
             try
             {               
-                var listAplication = obj.RetrieveMessageCount(queueName, connection);
+                var listAplication = obj.RetrieveSingleMessage(queueName, connection);
                 
+                //todo
+                //Apenas caminho feliz ... Dando tempo altero.
+                if (listAplication == null) return false;
+
+                var aplicationDomain = JsonConvert.DeserializeObject<List<AplicationDomain>>(listAplication);
+                foreach (var item in aplicationDomain)
+                {
+                    //todo
+                    //Apenas caminho feliz ... Dando tempo altero.
+                    service.Post<AplicationDomainValidator>(item);
+                }
                 return true;
             }
             catch (Exception ex)

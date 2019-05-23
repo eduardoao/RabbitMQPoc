@@ -1,13 +1,12 @@
 ﻿using Domain.Entities;
 using System.Data.Entity.ModelConfiguration;
-//using Microsoft.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 
 namespace Data.Mapping
 {
-    internal class UsuarioMap : EntityTypeConfiguration<Usuario>
+    internal class AplicationDomainMap : EntityTypeConfiguration<Usuario>
     {
-        public UsuarioMap()
+        public AplicationDomainMap()
         {
           
         }
@@ -16,8 +15,7 @@ namespace Data.Mapping
         //{
         //    builder.ToTable("Usuarios");
         //    builder.HasKey(u => u.Id);
-        //    builder.Property(u => u.Login).HasColumnName("Login").HasMaxLength(30);            
-
+        //    builder.Property(u => u.Login).HasColumnName("Login").HasMaxLength(30); 
         //}
     }
 }
