@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Site.ViewModels.ReturnDashboardViewModel>
+
+@{
+    ViewBag.Title = "GetAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAction</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="row">
+
+ 
+
+    <div class="col-md-4">
+       
+    </div>
+
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table" id="tableonline">
+            <tr>
+                <th>Machine</th>
+                <th>Status</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.AplicationDomain.MachiName
+                    </td>
+
+                    <td>
+                        @item.Status
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <div class="col-md-6">
+        <table class="table" id="tableonline">
+            <tr>
+                <th>Machine</th>
+                <th>Status</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.AplicationDomain.MachiName
+                    </td>
+
+                    <td>
+                        @item.Status
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
