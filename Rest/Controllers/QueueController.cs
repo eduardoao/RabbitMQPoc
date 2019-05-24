@@ -19,7 +19,7 @@ namespace Rest.Controllers
 {
     public class QueueController : ApiController
     {
-        private IService<AplicationDomain> service = new BaseService<AplicationDomain>();
+        private IService<AplicationDomain> service = new AplicationService<AplicationDomain>();
 
 
         UnityContainer container = UnityConfig.GetMainContainer();

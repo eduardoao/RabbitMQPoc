@@ -38,7 +38,7 @@ namespace Client
 
         void OnGetService(object sender, ElapsedEventArgs args)
         {
-            var aplicationlistmachine = AplicationServices.GetAllServices();
+            var aplicationlistmachine = AplicationServices.ProcessConsumer();
         }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Data.Repostitory
 {
@@ -50,7 +51,7 @@ namespace Data.Repostitory
             return context.Database.ExecuteSqlCommand(spname);
         }
 
-        public T Select(int id)
+        public virtual T Select(int id)
         {
             return context.Set<T>().Find(id);
         }
@@ -58,6 +59,12 @@ namespace Data.Repostitory
         public IList<T> SelectAll()
         {
             return context.Set<T>().ToList();
+        }
+
+        public List<T> Query(Expression<Func<T, bool>> predicate) 
+        {
+            var dbSet = context.Set<T>();
+            return dbSet.Where(predicate).ToList();
         }
     }
 }

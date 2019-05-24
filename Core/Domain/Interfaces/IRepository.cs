@@ -1,5 +1,8 @@
 ﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Domain.Interfaces
 {
@@ -14,6 +17,8 @@ namespace Domain.Interfaces
         T Select(int id);
 
         IList<T> SelectAll();
+
+        List<T> Query(Expression<Func<T, bool>> predicate);
 
     }
 }

@@ -13,7 +13,7 @@ namespace Service.Services
 
         public Repository<T> repository = new Repository<T>();
 
-        public T Post<V>(T obj) where V : AbstractValidator<T>
+        public virtual T Post<V>(T obj) where V : AbstractValidator<T>
         {
             Validate(obj, Activator.CreateInstance<V>());
 
@@ -21,7 +21,7 @@ namespace Service.Services
             return obj;
         }
 
-        public T Put<V>(T obj) where V : AbstractValidator<T>
+        public virtual T Put<V>(T obj) where V : AbstractValidator<T>
         {
             Validate(obj, Activator.CreateInstance<V>());
 
@@ -29,7 +29,7 @@ namespace Service.Services
             return obj;
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             if (id == 0)
                 throw new ArgumentException("The id can't be zero.");
@@ -37,9 +37,9 @@ namespace Service.Services
             repository.Delete(id);
         }
 
-        public IList<T> Get() => repository.SelectAll();
+        public virtual IList<T> Get() => repository.SelectAll();
 
-        public T GetId(int id)
+        public virtual T GetId(int id)
         {
             if (id == 0)
                 throw new ArgumentException("The id can't be zero.");
@@ -55,7 +55,7 @@ namespace Service.Services
             validator.ValidateAndThrow(obj);
         }
 
-        public void Remove(int id)
+        public virtual void Remove(int id)
         {
             if (id == 0)
                 throw new ArgumentException("The id can't be zero.");
