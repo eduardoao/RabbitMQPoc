@@ -21,22 +21,22 @@ namespace Site
         public void Configuration(IAppBuilder builder)
         {
             builder.CreatePerOwinContext<DbContext>(() =>
-                new IdentityDbContext<UsuarioAplicacao>("DefaultConnection"));
+                new IdentityDbContext<UserAplication>("DefaultConnection"));
 
-            builder.CreatePerOwinContext<IUserStore<UsuarioAplicacao>>(
+            builder.CreatePerOwinContext<IUserStore<UserAplication>>(
                 (opcoes, contextoOwin) =>
                 {
                     var dbContext = contextoOwin.Get<DbContext>();
-                    return new UserStore<UsuarioAplicacao>(dbContext);
+                    return new UserStore<UserAplication>(dbContext);
                 });
 
-            builder.CreatePerOwinContext<UserManager<UsuarioAplicacao>>(
+            builder.CreatePerOwinContext<UserManager<UserAplication>>(
                 (opcoes, contextoOwin) =>
                 {
-                    var userStore = contextoOwin.Get<IUserStore<UsuarioAplicacao>>();
-                    var userManager = new UserManager<UsuarioAplicacao>(userStore);
+                    var userStore = contextoOwin.Get<IUserStore<UserAplication>>();
+                    var userManager = new UserManager<UserAplication>(userStore);
 
-                    var userValidator = new UserValidator<UsuarioAplicacao>(userManager);
+                    var userValidator = new UserValidator<UserAplication>(userManager);
                     userValidator.RequireUniqueEmail = true;
 
                     userManager.UserValidator = userValidator;
@@ -54,7 +54,7 @@ namespace Site
                     var dataProtectionProvider = opcoes.DataProtectionProvider;
                     var dataProtectionProviderCreated = dataProtectionProvider.Create("Site");
 
-                    userManager.UserTokenProvider = new DataProtectorTokenProvider<UsuarioAplicacao>(dataProtectionProviderCreated);
+                    userManager.UserTokenProvider = new DataProtectorTokenProvider<UserAplication>(dataProtectionProviderCreated);
 
                     userManager.MaxFailedAccessAttemptsBeforeLockout = 3;
                     userManager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
@@ -63,12 +63,12 @@ namespace Site
                     return userManager;
                 });
 
-            builder.CreatePerOwinContext<SignInManager<UsuarioAplicacao, string>>(
+            builder.CreatePerOwinContext<SignInManager<UserAplication, string>>(
                 (opcoes, contextoOwin) =>
                 {
-                    var userManager = contextoOwin.Get<UserManager<UsuarioAplicacao>>();
+                    var userManager = contextoOwin.Get<UserManager<UserAplication>>();
                     var signInManager =
-                        new SignInManager<UsuarioAplicacao, string>(
+                        new SignInManager<UserAplication, string>(
                             userManager,
                             contextoOwin.Authentication);
 

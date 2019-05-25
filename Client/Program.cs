@@ -17,7 +17,7 @@ namespace Client
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new ServiceCliente()
             };
             ServiceBase.Run(ServicesToRun);
         }

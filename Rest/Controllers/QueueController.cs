@@ -67,6 +67,7 @@ namespace Rest.Controllers
         }
 
         // POST api/values
+        // Escreve na fila
         [HttpPost]
         public void Post(HttpRequestMessage  value)
         {

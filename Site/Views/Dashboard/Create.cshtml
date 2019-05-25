@@ -1,0 +1,18 @@
+﻿@model Site.ViewModels.DashboardViewModel
+
+@{
+    ViewBag.Title = "Criar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Search</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("", new { @class="text-danger" })
+
+    @Html.EditorForModel()
+
+    <input type="submit" value="Submit" />
+}

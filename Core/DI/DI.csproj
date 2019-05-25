@@ -55,6 +55,14 @@
       <Project>{0a37a02c-4461-49fd-b66e-b123f6b9769a}</Project>
       <Name>RabbitMQ</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{5E81BE6B-7037-40EF-AD4E-B1F6A21D8DA1}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{13FEDD89-DB50-488B-B30A-8FCEE6BB000B}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

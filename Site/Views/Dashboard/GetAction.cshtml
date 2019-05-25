@@ -5,30 +5,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GetAction</h2>
-
-<p>
+<br />
+<h2>Result Windows Services | RabbitMQ</h2>
+<br />
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 
 <div class="row">
-
- 
-
     <div class="col-md-4">
-       
+        Quantidade de máquinas online: 
     </div>
 
     <div class="col-md-4">
+        Quantidade de máquinas em alerta
     </div>
 
     <div class="col-md-4">
+        Quantidade de máquinas offline
     </div>
 </div>
-
+<hr />
 <div class="row">
     <div class="col-md-6">
-        <table class="table" id="tableonline">
+        <table class="table table-bordered" id="tableonline">
             <tr>
                 <th>Machine</th>
                 <th>Status</th>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="col-md-6">
-        <table class="table" id="tableonline">
+        <table class="table table-bordered" id="tableonline">
             <tr>
                 <th>Machine</th>
                 <th>Status</th>

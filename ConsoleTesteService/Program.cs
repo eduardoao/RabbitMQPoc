@@ -27,7 +27,7 @@ namespace ConsoleTesteService
            
 
             //Call Service Client 
-            var aplicationServices = Client.AplicationServices.ProcessConsumer();
+            var aplicationServices = Client.AplicationServices.ClientConsumer();
             string json = JsonConvert.SerializeObject(aplicationServices);
 
             IConnection connection = null;

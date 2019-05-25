@@ -20,6 +20,12 @@ namespace Site
                 , namespaces: new[] { "Site.Controllers" }
             );
 
+            routes.MapRoute(
+                "ErrorHandler",
+                "Unauthorised/{action}/{errMsg}",
+                new { controller = "Unauthorised", action = "Unauthorised", errMsg = UrlParameter.Optional }
+                );
+
 
         }
     }

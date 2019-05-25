@@ -50,9 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Base.cs" />
-    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\AplicationDomain.cs" />
-    <None Include="Entities\UsuarioAplicacao.cs_" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

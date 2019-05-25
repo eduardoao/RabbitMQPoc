@@ -1,5 +1,7 @@
-﻿//using Microsoft.Practices.Unity;
+﻿using Domain.Entities;
+using Domain.Interfaces;
 using RabbitMQ.RabbitMQContext;
+using Service.Services;
 using Unity;
 
 namespace DI
@@ -10,7 +12,7 @@ namespace DI
         {
             var container = new UnityContainer();
 
-            container.RegisterType<IRabbitMQService, RabbitMQService>();
+            container.RegisterType<IRabbitMQService, RabbitMQService>();          
 
             return container;
         }

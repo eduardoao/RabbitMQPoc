@@ -12,16 +12,16 @@ namespace Site.Controllers
     public class DashboardController : Controller
     {
         [Authorize]
-        public ActionResult Criar()
+        public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult Criar(DashboardViewModel modelo)
+        public ActionResult Create(DashboardViewModel modelo)
         {
-            TempData["tempo"] = modelo.Tempo;
+            TempData["time"] = modelo.Tempo;
             return RedirectToAction("GetAction");
         }
 
@@ -30,10 +30,8 @@ namespace Site.Controllers
         [Authorize]
         public ActionResult GetAction(int? tempo)
         {
-            if (TempData["tempo"] != null)
-            {
-
-                //return View();
+            if (TempData["time"] != null)
+            {               
                 var ret = new List<ReturnDashboardViewModel>();
                 //Fake
                 ret.Add(new ReturnDashboardViewModel

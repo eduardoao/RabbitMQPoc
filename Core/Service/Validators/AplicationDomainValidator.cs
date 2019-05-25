@@ -8,16 +8,16 @@ namespace Service.Validators
     {
         public AplicationDomainValidator()
         {
-            ValidaDados();
+            Validation();
         }
 
-        private void ValidaDados()
+        private void Validation()
         {
             RuleFor(c => c)
                 .NotNull()
                 .OnAnyFailure(x =>
                 {
-                    throw new ArgumentNullException("Objeto nao carregado.");
+                    throw new ArgumentNullException("Object is null.");
                 });
           
         }

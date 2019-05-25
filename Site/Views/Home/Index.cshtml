@@ -1,31 +1,78 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<br />
+    <div class="row">
+        <div class="container col-md-12">
+            <h1>Teste Técnico</h1>
+            <p class="lead">
+                Desenvolva um sistema de monitoração. Este sistema deve monitorar máquinas
+                client para um administrador, visualizar o estado de conexão e aplicações
+                instaladas. Ela deve ser formada por cinco componentes:
+            </p>
+            <div class="alert alert-info">
+                <ul>
+                    <li>Database</li>
+                    <li>Client</li>
+                    <li>API</li>
+                    <li>Processer</li>
+                    <li>Web</li>
+                </ul>
+            </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+            <p class="alert alert-secondary">
+                Client
+                Serviço Windows que deve enviar exatamente a cada minuto (00:01:00, 00:02:00,
+                00:03:00, etc) o nome dá máquina, a data/hora UTC e a lista de aplicações
+                instaladas.
+            </p>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            <p class="alert alert-secondary">
+                API
+                Aplicação web que deve expor uma API com:
+               
+                • Método para receber as informações do Client e enfileirar para processamento em uma instância de RabbitMQ.
+                • Método para consulta dos dados para o Dashboard descrito abaixo.
+            </p>
+
+            <p class="alert alert-secondary">
+                Processer
+                Serviço Windows que deve buscar as informações do RabbitMQ e inserir/atualizar
+                as informações no banco de dados.
+            </p>
+
+            <p class="alert alert-secondary">
+                Web
+                Aplicação web com as seguintes páginas:
+                <br />
+                • Login;
+                • Cadastro;
+                • Dashboard (área restrita).
+            </p>
+
+            <p class="alert alert-secondary">
+                Database
+                Script SQL obedecendo aos seguintes requisitos:
+                <br />
+                • Deve conter a criação do banco de dados;
+                • Deve conter a criação das tabelas;
+                • Stored procedures, caso existirem, não devem conter regras de negócio;
+                • Geração mínima de dados para que a aplicação seja avaliada.
+            </p>
+
+            <p class="alert alert-secondary">
+                Neste dashboard o usuário deve ser capaz de informar um tempo em minutos de
+                comunicação das máquinas para considerá-las online. Baseado nesse valor, ele
+                deve apresentar as seguintes informações:
+                • Quantidade de máquinas online (que se comunicaram dentro do espaço de tempo limite)
+                • Quantidade de máquinas em alerta (que se comunicaram dentro do espaço de tempo limite * 1.5)
+                • Quantidade de máquinas offline (que se comunicaram a mais do que o espaço de tempo limite * 1.5)
+                • Tabela com as top 10 máquinas que não se comunicam com o servidor a mais tempo
+                • Tabela com as top 10 aplicações com menos ocorrências em máquinas
+
+            </p>
+
+
+        </div>
+                
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>

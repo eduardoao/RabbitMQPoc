@@ -12,8 +12,8 @@ namespace Site.ViewModels
         public string UserName { get; set; }
 
         [Required]
-        [Display(Name = "Nome completo")]
-        public string NomeCompleto { get; set; }
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
 
         [Required]
         [EmailAddress]
@@ -21,6 +21,6 @@ namespace Site.ViewModels
 
         [Required]
         [DataType(DataType.Password)]
-        public string Senha { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -70,11 +70,11 @@
     <Compile Include="ProjectInstaller.Designer.cs">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service1.cs">
+    <Compile Include="ServiceProcess.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Service1.Designer.cs">
-      <DependentUpon>Service1.cs</DependentUpon>
+    <Compile Include="ServiceProcess.Designer.cs">
+      <DependentUpon>ServiceProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +87,10 @@
     <ProjectReference Include="..\core\DI\DI.csproj">
       <Project>{8226334D-7EAD-49D4-A79B-9ED6E54411A2}</Project>
       <Name>DI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Domain\Domain.csproj">
+      <Project>{5E81BE6B-7037-40EF-AD4E-B1F6A21D8DA1}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\RabbitMQDotnet\RabbitMQ.csproj">
       <Project>{0A37A02C-4461-49FD-B66E-B123F6B9769A}</Project>
