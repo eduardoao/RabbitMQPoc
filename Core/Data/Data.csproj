@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201905231920009_T03.Designer.cs">
       <DependentUpon>201905231920009_T03.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905251239464_New Columns.cs" />
+    <Compile Include="Migrations\201905251239464_New Columns.Designer.cs">
+      <DependentUpon>201905251239464_New Columns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repostitory\Repository.cs" />
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905231920009_T03.resx">
       <DependentUpon>201905231920009_T03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905251239464_New Columns.resx">
+      <DependentUpon>201905251239464_New Columns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
