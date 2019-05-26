@@ -9,13 +9,11 @@ namespace Data.Context
     {
         public DataAccessContext() : base("DataAccessContextDb")
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataAccessContext, Configuration>("DataAccessContextDb"));            
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataAccessContext, Configuration>("DataAccessContextDb"));           
 
         }
-        public DbSet<AplicationDomain> AplicationDomains { get; set; }
-        
-        //Identity
-
+        public DbSet<AplicationDomain> AplicationDomains { get; set; }        
+      
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -2,12 +2,21 @@
 using Domain.Entities;
 using FluentValidation;
 using System;
+using System.Collections.Generic;
 
 namespace Service.Services
 {
     public class AplicationService<T> : BaseService<T> where T : AplicationDomain
     {
         public Repository<T> _repository = new Repository<T>();
+
+        public override IList<T> Get(int id)
+        {
+            var dta = DateTime.UtcNow.AddMinutes(-id);
+            var resultado = _repository.Query(a => a.DateTimeUtc >= dta);
+            return resultado;
+        }
+
 
         public override T Post<V>(T obj)
         {
@@ -33,7 +42,7 @@ namespace Service.Services
         private void Validate(T obj, AbstractValidator<T> validator)
         {
             if (obj == null)
-                throw new Exception("Registros não detectados!");
+                throw new Exception("None register!");
 
             validator.ValidateAndThrow(obj);
         }

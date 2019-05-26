@@ -271,7 +271,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Dashboard\Create.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -283,6 +282,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Dashboard\GetAction.cshtml" />
     <Content Include="Views\Unauthorised\Index.cshtml" />
+    <Content Include="Views\Dashboard\OnlineMachine.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -300,6 +301,10 @@
     <ProjectReference Include="..\core\Domain\Domain.csproj">
       <Project>{5e81be6b-7037-40ef-ad4e-b1f6a21d8da1}</Project>
       <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Service\Service.csproj">
+      <Project>{13FEDD89-DB50-488B-B30A-8FCEE6BB000B}</Project>
+      <Name>Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

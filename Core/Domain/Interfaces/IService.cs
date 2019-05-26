@@ -14,7 +14,11 @@ namespace Domain.Interfaces
 
         IList<T> Get();
 
+        IList<T> Get(int id);
+
         T GetId(int id);
+
+
 
     }
 }

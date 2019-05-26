@@ -19,6 +19,7 @@ namespace Rest.Controllers
 {
     public class QueueController : ApiController
     {
+        //Put this in DI container -
         private IService<AplicationDomain> service = new AplicationService<AplicationDomain>();
 
 
@@ -30,7 +31,7 @@ namespace Rest.Controllers
         ConnectionFactory connectionFactory;
 
         public QueueController()
-        {
+        {           
             obj = container.Resolve<IRabbitMQService>();
             connectionFactory = obj.GetConnectionFactory();
             connection = obj.CreateConnection(connectionFactory);

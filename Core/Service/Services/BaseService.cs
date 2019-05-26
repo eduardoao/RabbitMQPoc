@@ -39,6 +39,14 @@ namespace Service.Services
 
         public virtual IList<T> Get() => repository.SelectAll();
 
+        public virtual IList<T> Get(int id)
+        {
+            if (id == 0)
+                throw new ArgumentException("The id can't be zero.");
+
+            return repository.Query(r => r.Id == id);
+        }
+
         public virtual T GetId(int id)
         {
             if (id == 0)
@@ -46,11 +54,12 @@ namespace Service.Services
 
             return repository.Select(id);
         }
+   
 
         private void Validate(T obj, AbstractValidator<T> validator)
         {
             if (obj == null)
-                throw new Exception("Registros não detectados!");
+                throw new Exception("None register!");
 
             validator.ValidateAndThrow(obj);
         }
@@ -63,5 +72,7 @@ namespace Service.Services
             repository.Delete(id);
 
         }
+
+     
     }
 }

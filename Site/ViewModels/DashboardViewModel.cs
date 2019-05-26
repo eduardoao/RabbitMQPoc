@@ -1,20 +1,29 @@
 ﻿using Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Site.ViewModels
 {
     public class DashboardViewModel
     {
-        public int Tempo { get; set; }      
+        public int Timee { get; set; }
     }
 
     public class ReturnDashboardViewModel
     {
-        public AplicationDomain AplicationDomain { get; set; }
-        public Status Status { get; set; }
+        public ReturnDashboardViewModel()
+        {
+            ReturnStatusMachine = new List<MachineAmount>();
+            AplicationName = new List<string>();
+            MachineOnlineName = new List<string>();
+
+        }
+
+        public List<MachineAmount> ReturnStatusMachine { get; set; }
+
+        public List<string> AplicationName { get; set; }
+
+        public List<string> MachineOnlineName { get; set; }
+
     }
 
     public enum Status
@@ -24,4 +33,9 @@ namespace Site.ViewModels
         Alerta = 3
     }
 
+    public class MachineAmount
+    {
+        public int Amount { get; set; }     
+        public Status Status { get; set; }
+    }
 }

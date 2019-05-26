@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Site.ViewModels.ReturnDashboardViewModel>
+﻿@model Site.ViewModels.ReturnDashboardViewModel
+@*@model IEnumerable<Domain.Entities.AplicationDomain>*@
 
 @{
     ViewBag.Title = "GetAction";
@@ -9,41 +10,39 @@
 <h2>Result Windows Services | RabbitMQ</h2>
 <br />
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
 
 <div class="row">
-    <div class="col-md-4">
-        Quantidade de máquinas online: 
-    </div>
+    <div class="container-fluid">
+        <div class="col-md-4 alert alert-success">
+            Online Machine:  @Model.ReturnStatusMachine.Where(s => s.Status == Site.ViewModels.Status.Online).Select(a => a.Amount).SingleOrDefault()
+        </div>
 
-    <div class="col-md-4">
-        Quantidade de máquinas em alerta
-    </div>
+        <div class="col-md-4 alert alert-danger">
+            Offline Machine @Model.ReturnStatusMachine.Where(s => s.Status == Site.ViewModels.Status.Offline).Select(a => a.Amount).SingleOrDefault()
+        </div>
 
-    <div class="col-md-4">
-        Quantidade de máquinas offline
+        <div class="col-md-4 alert alert-warning">
+            Alert Machine  @Model.ReturnStatusMachine.Where(s => s.Status == Site.ViewModels.Status.Alerta).Select(a => a.Amount).SingleOrDefault()
+        </div>
     </div>
 </div>
 <hr />
 <div class="row">
     <div class="col-md-6">
+        <h2>Tabela com as top 10 máquinas que não se comunicam com o servidor a mais tempo</h2>
         <table class="table table-bordered" id="tableonline">
             <tr>
-                <th>Machine</th>
-                <th>Status</th>
+                <th>Machine</th>              
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.MachineOnlineName)
             {
                 <tr>
                     <td>
-                        @item.AplicationDomain.MachiName
-                    </td>
-
-                    <td>
-                        @item.Status
-                    </td>
+                        @item
+                    </td>                   
                 </tr>
             }
 
@@ -51,22 +50,18 @@
     </div>
 
     <div class="col-md-6">
+        <h2>Tabela com as top 10 aplicações com menos ocorrências em máquinas</h2>
         <table class="table table-bordered" id="tableonline">
             <tr>
-                <th>Machine</th>
-                <th>Status</th>
+                <th>Aplication Name</th>             
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.AplicationName)
             {
                 <tr>
                     <td>
-                        @item.AplicationDomain.MachiName
-                    </td>
-
-                    <td>
-                        @item.Status
-                    </td>
+                        @item
+                    </td>                 
                 </tr>
             }
 

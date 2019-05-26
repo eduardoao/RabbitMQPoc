@@ -70,13 +70,11 @@ namespace RabbitMQ.RabbitMQContext
                 while (count < messageCount)
                 {
                     var dequeue = consumer.Queue.Dequeue();
-
                     var body = dequeue.Body;
                     var message = Encoding.UTF8.GetString(body);
-
                     messageList.Add(message);
                     channel.BasicAck(dequeue.DeliveryTag, false);
-                    count++;
+                    count += 1 ;
                 }
             }
 

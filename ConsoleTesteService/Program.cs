@@ -25,8 +25,6 @@ namespace ConsoleTesteService
             Repository<AplicationDomain> repository = new Repository<AplicationDomain>();
            
 
-           
-
             //Call Service Client 
             var aplicationServices = Client.AplicationServices.ClientConsumer();
             string json = JsonConvert.SerializeObject(aplicationServices);
@@ -115,7 +113,7 @@ namespace ConsoleTesteService
             Repository<AplicationDomain> repository = new Repository<AplicationDomain>();
 
             var aplication1 = new AplicationDomain {
-                DateTimeUtc = DateTime.UtcNow,
+                DateTimeUtc = DateTime.UtcNow.AddMinutes(-30),
                 MachiName = "Teste0",                
                 ServiceDisplayName = "tes",
                 ServiceName = "Identidade do Aplicativo Identidade do Aplicativo",
@@ -127,7 +125,7 @@ namespace ConsoleTesteService
 
             var aplication2 = new AplicationDomain
             {
-                DateTimeUtc = DateTime.UtcNow,
+                DateTimeUtc = DateTime.UtcNow.AddMinutes(-30),
                 MachiName = "Teste0",
                 Id = 1,
                 ServiceDisplayName = "tes",
@@ -149,7 +147,7 @@ namespace ConsoleTesteService
 
             var aplication4 = new AplicationDomain
             {
-                DateTimeUtc = DateTime.UtcNow,
+                DateTimeUtc = DateTime.UtcNow.AddMinutes(-50),
                 MachiName = "Teste1",
                 Id = 1,
                 ServiceDisplayName = "tes",
@@ -171,7 +169,7 @@ namespace ConsoleTesteService
 
             var aplication6 = new AplicationDomain
             {
-                DateTimeUtc = DateTime.UtcNow,
+                DateTimeUtc = DateTime.UtcNow.AddMinutes(-30),
                 MachiName = "Teste2",
                 Id = 1,
                 ServiceDisplayName = "tes",
@@ -193,9 +191,11 @@ namespace ConsoleTesteService
 
             var lambdaBreedsCount = ret.GroupBy(x => x.ServiceName).Select(grp =>
                           new {
-                              Breed = grp.Key,
+                              ServiceName = grp.Key,
                               Count = grp.Count()
-                          }).ToList().OrderBy( e => e.Count);
+                          }).ToList()
+                          .OrderBy( e => e.Count)
+                          .Take(10);
 
 
            
